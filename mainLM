@@ -1,0 +1,133 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 10 08:25:45 2025
+
+@author: argoud
+"""
+from personnage import personnage
+from personnage import ennemy
+import random
+
+
+
+porte=ennemy("porte", "", 20,100)
+a=0
+b=0
+c=0
+d=0
+e=0
+f=0
+g=0
+fightportetuto=0
+fighton=0
+exp=0
+lvl=1
+
+
+
+
+"""
+----------
+FONCTIONS
+----------
+"""
+""" intro du combat"""
+
+def bagarrh(ennemi):
+    result=0
+    fighton=1
+    aleatoire=random.randint(1,5)
+    print("---------------")
+    if aleatoire==1:
+        print("Un",ennemi.nom,"sauvage apparaît!\n")
+    elif aleatoire==2:
+        print(ennemi.nom,"veut te voler ton goûter!\n")
+    elif aleatoire==3:
+        print(ennemi.nom,"te barre la route!\n")
+    else:
+        print(ennemi.nom,"veut se battre!\n")
+
+    """instauration du combat au tour par tour"""        
+    while fighton==1: #tant que le combat dure
+        if ennemi.vie<=0:
+            result="victoire"
+            fighton=0
+            print("Vous avez battu",ennemi.nom,"!\nVous avez gagné",ennemi.exp,"exp!")
+            mc.niveau(ennemi.exp)
+            #if
+        elif mc.vie<=0:
+            result="defaite"
+            fighton=0
+        else:
+        
+            choixfight=0
+            print("Que voulez vous faire?\n")
+            while choixfight!="attaquer" and choixfight!="ATTAQUER" and choixfight!="objets" and choixfight!="OBJETS" and choixfight!="menacer" and choixfight!="MENACER":    
+                choixfight=input("- ATTAQUER -\n- OBJETS -\n- MENACER -\n_")
+                if choixfight=="attaquer" or choixfight=="ATTAQUER":
+                    
+                    print("...")
+                    
+                    pass
+
+
+"""
+----------
+PLOT
+----------
+"""
+
+
+
+
+mc=personnage("Nom", "Spé", "Spé2", 0, 0, "arme", 20)
+
+while a!="":
+    a=input("PRESS START TO PLAY\n")
+    if a=="":            
+        while b!="": 
+            b=input("blobloblo blebleble bloubloublou...\n utilisez la touche START pour avancer dans le jeu...\n")
+            if b=="":
+                while d!="":
+                    mc.nom=input("Votre nom: _")
+                    print(mc.nom,"! Quel nom de merde! tant pis, on va faire avec.")
+                    
+                    print("Quelles sont vos spécialités: ")
+                    mc.spe1=input("Spé 1: _")
+                    mc.spe2=input("Spé 2: _")
+                    print(mc.spe1, mc.spe2, "? Vous comptez rater votre vie avec ça?")
+                    
+                    mc.pointure=int(input("Votre pointure: _"))
+                    if mc.pointure>=40:
+                        print(mc.pointure, "! C'est quoi ces pieds de salopard!")
+                    else:
+                        print(mc.pointure, "! ah ouaiss le petit poucet")
+                    
+                    mc.age=int(input("Votre âge: _"))
+                    if mc.age>=17:
+                        print("Oh le vieux croûton!")
+                    else:
+                        print("Un gros bébé cadum...")
+                    d=""
+                    
+                while e!="":
+                    e=input("...")
+                while c!="Stylo" and c!="Clavier" and c!="Table" and c!="stylo" and c!="clavier" and c!="table":
+                    print("Bonjour ",mc.nom,", Le jeu se déroule dans le lycée Monte Cristo.\nVous rencontrerez plusieurs ennemis que vous devrez affronter pour avancer.\n")
+                    print("Vous apparaissez dans la salle P201.\nVous êtes accueillis par M. Arnaud qui vous propose de choisir une arme pour vous défendre:")
+                    c=input("Vous avez le choix entre:\n- Stylo -\n- Clavier -\n- Table -\nQuelle arme choisissez vous? _")
+                    if c=="Stylo" or c=="stylo":
+                        mc.arme="stylo"
+                    elif c=="Clavier" or c=="clavier":
+                        mc.arme="clavier"
+                    elif c=="Table" or c=="table":
+                        mc.arme="table"
+                        
+                    print("Vous avez choisi",mc.arme,"! Excellent choix")
+                while f!="":
+                    f=input("...")
+                while g!="":
+                    g=input("Vous devez à présent sortir de la salle...")
+                while fightportetuto!="":
+                    fightportetuto=input("Une porte vous barre la route! Préparez vous au combat!")
+                bagarrh(porte)
